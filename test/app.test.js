@@ -95,4 +95,25 @@ describe("TEST Google Cloud Functions", () => {
         });
     });
   });
+
+  /**
+   * Test quantum number partition function
+   */
+  describe(`POST https://${projectLocation}-${projectId}.cloudfunctions.net/number_partition`, () => {
+    it("Should return the correct status (200)", (done) => {
+      const body = {
+        partition_weights: [1, 5, 9, 21, 35, 5, 3, 5, 10, 11],
+      };
+
+      chai
+        .request(`https://${projectLocation}-${projectId}.cloudfunctions.net/`)
+        .post("/number_partition")
+        .send(body)
+        .end((err, response) => {
+          console.log(response.body);
+          response.should.have.status(200);
+          done();
+        });
+    }).timeout(6000); // very slow...
+  });
 });
