@@ -111,9 +111,27 @@ describe("TEST Google Cloud Functions", () => {
         .send(body)
         .end((err, response) => {
           console.log(response.body);
+          console.log(response.body.result.solutions);
           response.should.have.status(200);
           done();
         });
-    }).timeout(6000); // very slow...
+    }).timeout(7000); // very slow...
+
+    it("Should return the correct status (200) (KK algorithm)", (done) => {
+      const body = {
+        partition_weights: [1, 5, 9, 21, 35, 5, 3, 5, 10, 11],
+        method: "karmarkar_karp",
+      };
+
+      chai
+        .request(`https://${projectLocation}-${projectId}.cloudfunctions.net/`)
+        .post("/number_partition")
+        .send(body)
+        .end((err, response) => {
+          console.log(response.body);
+          response.should.have.status(200);
+          done();
+        });
+    });
   });
 });
