@@ -16,15 +16,42 @@
 
 // [START gae_node_request_example]
 const express = require("express");
-
 const app = express();
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
+const PORT = process.env.PORT || 8080;
+
+// Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "TecunTecs API",
+      description: "TecunTecs Cloud Platform API Information",
+      contact: {
+        name: "Jose Alvarez",
+      },
+      servers: ["https://localhost:" + process.env.PORT],
+    },
+  },
+  apis: ["app.js", "./routes/*/*.js", "./routes/testswagger/*.js"],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs/", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.get("/", (req, res) => {
-  res.status(200).send("Hello world Capstone API!").end();
+  // res.status(200).send("Hello world Capstone API!").end();
+  res.redirect("/api-docs");
 });
 
+app.use(
+  "/number-partition/",
+  require("./routes/number-partition/api-number-partition.js")
+);
+
+app.use("/testswagger/", require("./routes/testswagger/swaggertest.js"));
+
 // Start the server
-const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log("Press Ctrl+C to quit.");
