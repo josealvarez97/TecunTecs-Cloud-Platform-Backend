@@ -63,6 +63,8 @@ app.use(
 
 app.use("/integrate/", require("./routes/integrate/api-integrate.js"));
 
+app.use("/optimize-qio/", require("./routes/optimize-qio/api-optimize-qio.js"));
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);

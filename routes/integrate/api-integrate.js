@@ -16,7 +16,24 @@ const projectLocation = secrets.GCLOUD_PROJECT_LOCATION;
  * @swagger
  * /integrate:
  *    post:
- *      description: Integrates single variable function. The value of `f` (string) follows the syntax of a Python lambda function. Specifying the `method` parameter is optional.
+ *      description:
+ *        "Integrates single variable function. The value of `f` (string)
+ *          follows the syntax of a Python lambda function. Specifying
+ *          the `method` parameter is optional.
+ *
+ *
+ *        **Capstone-related notes**:
+ *
+ *            * I would like to include a link to download the source of every
+ *              cloud function.
+ *
+ *            * I would like to provide links to a separate documentation site with
+ *              educational material.
+ *
+ *            * SimScale is a source of inspiration for the way their tutorial articles leverage their product.
+ *
+ *            * Omni Calculator is a source of inspiration for the creative way in which they list their calculators."
+ *
  *      tags:
  *      - Dynamical systems
  *      consumes:
