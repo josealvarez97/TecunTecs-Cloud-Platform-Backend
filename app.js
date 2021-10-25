@@ -46,6 +46,10 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
+
+app.use(express.urlencoded({ extended: false })); // {limit: '50mb', extended: true}
+app.use(express.json({ limit: "100mb", extended: true })); // use json content type...
+
 app.use("/api-docs/", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.get("/", (req, res) => {
   // res.status(200).send("Hello world Capstone API!").end();
