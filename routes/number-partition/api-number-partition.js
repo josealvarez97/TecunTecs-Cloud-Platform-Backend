@@ -7,6 +7,7 @@ const router = express.Router();
  * /number-partition:
  *  post:
  *      description: Use to solve Number Partitioning Problem
+ *
  *      responses:
  *          '200':
  *              description: A successful response

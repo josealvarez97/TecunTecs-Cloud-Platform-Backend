@@ -34,7 +34,15 @@ const swaggerOptions = {
       servers: ["https://localhost:" + process.env.PORT],
     },
   },
-  apis: ["app.js", "./routes/*/*.js", "./routes/testswagger/*.js"],
+  apis: [
+    "app.js",
+    "./routes/integrate/*.js",
+    "./routes/solve-ode/*.js",
+    "./routes/solve-pde/*.js",
+    "./routes/solve-cfd/*.js",
+    "./routes/optimize-lp/*.js",
+    "./routes/optimize-qio/*.js",
+  ],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -49,7 +57,7 @@ app.use(
   require("./routes/number-partition/api-number-partition.js")
 );
 
-app.use("/testswagger/", require("./routes/testswagger/swaggertest.js"));
+app.use("/integrate/", require("./routes/integrate/api-integrate.js"));
 
 // Start the server
 app.listen(PORT, () => {
