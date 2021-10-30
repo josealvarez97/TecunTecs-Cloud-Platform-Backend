@@ -17,6 +17,10 @@
 // [START gae_node_request_example]
 const express = require("express");
 const app = express();
+// https://www.stackhawk.com/blog/react-cors-guide-what-it-is-and-how-to-enable-it/
+const cors = require("cors");
+app.use(cors()); // https://expressjs.com/en/resources/middleware/cors.html
+
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
