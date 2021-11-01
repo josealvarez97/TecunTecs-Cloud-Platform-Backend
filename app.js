@@ -56,6 +56,7 @@ app.use(express.json({ limit: "100mb", extended: true })); // use json content t
 
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
+app.use("/archive/", express.static("archive"));
 
 app.use("/api-docs/", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Overriden anyways by "app.use(express.static("public"));"
