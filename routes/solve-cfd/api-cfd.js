@@ -9,6 +9,7 @@ const projectLocation = secrets.GCLOUD_PROJECT_LOCATION;
 const fs = require("fs");
 const fsPromises = require("fs").promises;
 
+const { uploadFile } = require("../../util/util-cloud-storage.js");
 // Routes
 
 /**
@@ -38,7 +39,10 @@ router.post("/cavity-flow-2d", async (req, res) => {
     async (response) => {
       console.log("response.data");
       // console.log(response.data);
-      await fsPromises.writeFile("filename.zip", Buffer.from(response.data));
+      await fsPromises.writeFile("cavity_flow.zip", Buffer.from(response.data));
+      const metadata = await uploadFile("cavity_flow.zip").catch(console.error);
+      const publicZippedFileUrl = `https://storage.googleapis.com/${metadata["bucket"]}/${metadata["name"]}`;
+      console.log("Metadata after upload", publicZippedFileUrl);
 
       res.status(200).json({
         description: "Successfully saved zip file in the server",
