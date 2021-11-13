@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "mocha --exit test/*.test.js"
+    "test": "mocha --exit test/*.test.js",
+    "test-solve-cfd": "mocha --exit test/routes/solve-cfd/*.test.js"
   },
   "dependencies": {
     "@google-cloud/functions": "^1.2.0",
