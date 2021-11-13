@@ -25,10 +25,11 @@ describe("TEST api-cfd", () => {
         .post("/solve-cfd/cavity-flow-2d")
         .send(body)
         .end((err, response) => {
-            console.log(response);
+          // console.log(response);
+          console.log(err);
           response.should.have.status(200);
           done();
         });
-    }).timeout(40000); 
+    }).timeout(40000);
   });
 });

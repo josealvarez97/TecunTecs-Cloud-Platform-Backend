@@ -74,4 +74,7 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# Custom
 secrets.json
+tmp_test/
