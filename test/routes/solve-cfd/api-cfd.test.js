@@ -25,8 +25,8 @@ describe("TEST api-cfd", () => {
         .post("/solve-cfd/cavity-flow-2d")
         .send(body)
         .end((err, response) => {
-          // console.log(response);
-          console.log(err);
+          console.log(response.body);
+          if (err) console.log(err);
           response.should.have.status(200);
           done();
         });

@@ -60,6 +60,11 @@ app.use("/archive/", express.static("archive"));
 
 app.use("/api-docs/", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Overriden anyways by "app.use(express.static("public"));"
+
+app.get("/test", (req, res) => {
+  res.status(200).send("Hello world Capstone API!").end();
+});
+
 app.get("/", (req, res) => {
   // res.status(200).send("Hello world Capstone API!").end();
   res.redirect("/api-docs");
