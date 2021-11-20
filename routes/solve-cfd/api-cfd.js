@@ -99,9 +99,7 @@ router.post("/cavity-flow-2d", async (req, res) => {
 
       console.log("Uploaded CFD simulation result files to cloud storage.");
 
-      res.status(200).json({
-        data,
-      });
+      res.status(200).json(data);
     },
     (error) => {
       console.log(error);
