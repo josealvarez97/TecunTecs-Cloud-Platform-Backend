@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus_tecuntecs=self.webpackChunkdocusaurus_tecuntecs||[]).push([[513],{7216:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/tecuntecs","name":"tecuntecs","count":1,"permalink":"/blog/tags/tecuntecs"}')}}]);
