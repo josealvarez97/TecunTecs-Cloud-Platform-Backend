@@ -81,6 +81,8 @@ app.use("/optimize-qio/", require("./routes/optimize-qio/api-optimize-qio.js"));
 
 app.use("/solve-cfd/", require("./routes/solve-cfd/api-cfd.js"));
 
+app.use("/solve-pde/", require("./routes/solve-pde/api-pde.js"));
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
