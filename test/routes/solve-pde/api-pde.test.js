@@ -13,7 +13,16 @@ describe("TEST api-pde", () => {
    */
   describe(`POST heat-equation`, () => {
     it("Should return status 200", (done) => {
-      const body = {};
+      const body = {
+        heat_x_0: 0,
+        heat_x_max: 0,
+        f_0: "lambda x: sin(pi*x/1)",
+        alpha: 0.1,
+        Nx: 20,
+        x_max: 1,
+        Mt: 20,
+        t_max: 1,
+      };
 
       chai
         .request(app)

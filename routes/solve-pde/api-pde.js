@@ -33,12 +33,14 @@ else TEMP = "/tmp/";
  *
  */
 router.post("/heat-equation", async (req, res) => {
+  // const { heat_x_0, a, b, n, method } = req.body;
+  console.log(req.body);
   const heatEquationURL = `https://${projectLocation}-${projectId}.cloudfunctions.net/heat_equation`;
 
   axios({
     url: heatEquationURL,
     method: "POST",
-    data: {},
+    data: req.body,
     responseType: "arraybuffer",
   }).then(
     async (response) => {
