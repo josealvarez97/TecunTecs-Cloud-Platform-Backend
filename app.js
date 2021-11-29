@@ -46,6 +46,7 @@ const swaggerOptions = {
     "./routes/solve-cfd/*.js",
     "./routes/optimize-lp/*.js",
     "./routes/optimize-qio/*.js",
+    "./routes/optimize-energy-management/*.js",
   ],
 };
 
@@ -82,6 +83,11 @@ app.use("/optimize-qio/", require("./routes/optimize-qio/api-optimize-qio.js"));
 app.use("/solve-cfd/", require("./routes/solve-cfd/api-cfd.js"));
 
 app.use("/solve-pde/", require("./routes/solve-pde/api-pde.js"));
+
+app.use(
+  "/optimize-energy-management",
+  require("./routes/optimize-energy-management/api-optimize-energy.js")
+);
 
 // Start the server
 app.listen(PORT, () => {
