@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>TecunTecs Blog</title>
+        <link>https://tecuntecs-cloud-platform.appspot.com/blog</link>
+        <description>TecunTecs Blog</description>
+        <lastBuildDate>Wed, 27 Oct 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Introducing TecunTecs]]></title>
+            <link>https://tecuntecs-cloud-platform.appspot.com/blog/tecuntecs</link>
+            <guid>tecuntecs</guid>
+            <pubDate>Wed, 27 Oct 2021 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

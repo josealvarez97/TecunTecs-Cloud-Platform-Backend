@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://tecuntecs-cloud-platform.appspot.com/blog</id>
+    <title>TecunTecs Blog</title>
+    <updated>2021-10-27T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://tecuntecs-cloud-platform.appspot.com/blog"/>
+    <subtitle>TecunTecs Blog</subtitle>
+    <icon>https://tecuntecs-cloud-platform.appspot.com/img/TecunTecs-Logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Introducing TecunTecs]]></title>
+        <id>tecuntecs</id>
+        <link href="https://tecuntecs-cloud-platform.appspot.com/blog/tecuntecs"/>
+        <updated>2021-10-27T00:00:00.000Z</updated>
+        <author>
+            <name>José Alvarez</name>
+            <uri>https://github.com/josealvarez97</uri>
+        </author>
+    </entry>
+</feed>
