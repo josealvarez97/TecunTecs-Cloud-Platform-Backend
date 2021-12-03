@@ -47,6 +47,7 @@ const swaggerOptions = {
     "./routes/optimize-lp/*.js",
     "./routes/optimize-qio/*.js",
     "./routes/optimize-energy-management/*.js",
+    "./routes/calculate-beam/*.js",
   ],
 };
 
@@ -87,6 +88,11 @@ app.use("/solve-pde/", require("./routes/solve-pde/api-pde.js"));
 app.use(
   "/optimize-energy-management",
   require("./routes/optimize-energy-management/api-optimize-energy.js")
+);
+
+app.use(
+  "/calculate-beam/",
+  require("./routes/calculate-beam/api-calculate-beam.js")
 );
 
 // Start the server
