@@ -18,7 +18,8 @@
     "test-solve-cfd": "mocha --exit test/routes/solve-cfd/*.test.js",
     "test-solve-pde": "mocha --exit test/routes/solve-pde/*.test.js",
     "test-optimize-energy": "mocha --exit test/routes/optimize-energy-management/*.test.js",
-    "test-calculate-beam": "mocha --exit test/routes/calculate-beam/*.test.js"
+    "test-calculate-beam": "mocha --exit test/routes/calculate-beam/*.test.js",
+    "test-estimate-effect": "mocha --exit test/routes/estimate-effect/*.test.js" 
     
   },
   "dependencies": {

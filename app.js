@@ -48,6 +48,7 @@ const swaggerOptions = {
     "./routes/optimize-qio/*.js",
     "./routes/optimize-energy-management/*.js",
     "./routes/calculate-beam/*.js",
+    "./routes/estimate-effect/*.js",
   ],
 };
 
@@ -93,6 +94,11 @@ app.use(
 app.use(
   "/calculate-beam/",
   require("./routes/calculate-beam/api-calculate-beam.js")
+);
+
+app.use(
+  "/estimate-effect",
+  require("./routes/estimate-effect/api-estimate-effect.js")
 );
 
 // Start the server
