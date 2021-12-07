@@ -32,7 +32,11 @@ router.post("/bpCausal", async (req, res) => {
   }).then(
     async (response) => {
       const data = await postprocessResultsZipfile("bpCausal", response.data, [
-        "sout1",
+        "summary_estimated_parameters.json",
+        "summary_treatment_effects.json",
+        "posterior_constant_effects.json",
+        "ATT.json",
+        "ATT.png",
       ]).catch(console.error);
       console.log("Uploaded bpCausal simulation result files to cloud storage");
       res.status(200).json(data);
