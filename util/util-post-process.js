@@ -33,7 +33,7 @@ async function postprocessResultsZipfile(
 
   // Unzip files and upload them all to cloud storage bucket
   const extractedFilesPath = TEMP + resultsFileBasename;
-  // shouldn't be async
+  // shouldn't be async // SHOULDN'T EXTRACT .zip files inside of zip...
   await zipUtil
     .extractZipFile(zipFilePath, extractedFilesPath)
     .catch(console.error);

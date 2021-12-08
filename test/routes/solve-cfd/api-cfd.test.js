@@ -18,6 +18,7 @@ describe("TEST api-cfd", () => {
         a: 0,
         b: 1,
         n: 4,
+        nt: 10,
       };
 
       chai
