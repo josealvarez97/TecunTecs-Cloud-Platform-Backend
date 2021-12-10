@@ -1,3 +1,3 @@
 # TecunTecs Cloud Platform
 
-[https://tecuntecs-cloud-platform.appspot.com/](https://tecuntecs-cloud-platform.appspot.com/)
+[https://api.tecuntecs.com/](https://api.tecuntecs.com/)
