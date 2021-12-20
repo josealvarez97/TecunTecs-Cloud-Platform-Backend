@@ -31,7 +31,8 @@ const swaggerOptions = {
   swaggerDefinition: {
     info: {
       title: "TecunTecs API",
-      description: "TecunTecs Cloud Platform API Information",
+      description:
+        "Welcome to the TecunTecs Cloud Platform API Information! \n\nBelow you will be able to see the details of every API route, and even try them out. Every route has example values for the JSON Body object (click on 'model' to reveal the description of every parameter inside the body object).",
       contact: {
         name: "Jose Alvarez",
       },
@@ -45,14 +46,29 @@ const swaggerOptions = {
     "./routes/solve-pde/*.js",
     "./routes/solve-cfd/*.js",
     "./routes/optimize-lp/*.js",
-    "./routes/optimize-qio/*.js",
     "./routes/optimize-energy-management/*.js",
+    "./routes/optimize-qio/*.js",
     "./routes/calculate-beam/*.js",
     "./routes/estimate-effect/*.js",
   ],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
+const swaggerSpec2 = swaggerJsDoc({
+  swaggerDefinition: {
+    info: {
+      title: "TecunTecs API (Industry)",
+
+      description:
+        "Welcome to the TecunTecs Cloud Platform API Information (for Industry)",
+      contact: {
+        name: "Jose Alvarez",
+      },
+      servers: ["https://localhost:" + process.env.PORT],
+    },
+  },
+  apis: ["./routes/calculate-beam/*.js"],
+});
 
 app.use(express.urlencoded({ extended: false })); // {limit: '50mb', extended: true}
 app.use(express.json({ limit: "100mb", extended: true })); // use json content type...
@@ -61,13 +77,36 @@ app.use(express.json({ limit: "100mb", extended: true })); // use json content t
 app.use(express.static("public"));
 app.use("/archive/", express.static("archive"));
 
-app.use("/api-docs/", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-// Overriden anyways by "app.use(express.static("public"));"
+// https://github.com/Surnet/swagger-jsdoc/blob/v7/examples/app/app.js
+// https://github.com/Surnet/swagger-jsdoc/blob/db6e0e8693c126e865bae3d6049a59dbd5977639/examples/app/app.js#L54
+// https://www.npmjs.com/package/swagger-ui-express
+app.get("/api-docs/swagger.json", (req, res) => res.json(swaggerDocs)); //https://openbase.com/js/swagger-ui-express
+
+// https://github.com/swagger-api/swagger-ui/issues/4631#issuecomment-396429901
+var options = {
+  // https://www.npmjs.com/package/swagger-ui-express
+  swaggerOptions: {
+    url: "/api-docs/swagger.json",
+    // validatorUrl: null,
+  },
+};
+app.use(
+  "/api-docs",
+  swaggerUi.serveFiles(null, options),
+  swaggerUi.setup(null, options)
+);
+
+app.use(
+  "/api-docs-industry/",
+  swaggerUi.serveFiles(swaggerSpec2),
+  swaggerUi.setup(swaggerSpec2)
+);
 
 app.get("/test", (req, res) => {
   res.status(200).send("Hello world Capstone API!").end();
 });
 
+// Overriden anyways by "app.use(express.static("public"));"
 app.get("/", (req, res) => {
   // res.status(200).send("Hello world Capstone API!").end();
   res.redirect("/api-docs");

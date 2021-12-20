@@ -18,22 +18,9 @@ const projectLocation = secrets.GCLOUD_PROJECT_LOCATION;
  *    post:
  *      description:
  *        "Integrates single variable function. The value of `f` (string)
- *          follows the syntax of a Python lambda function. Specifying
- *          the `method` parameter is optional.
- *
- *
- *        **Capstone-related notes**:
- *
- *            * I would like to include a link to download the source of every
- *              cloud function.
- *
- *            * I would like to provide links to a separate documentation site with
- *              educational material.
- *
- *            * SimScale is a source of inspiration for the way their tutorial articles leverage their product.
- *
- *            * Omni Calculator is a source of inspiration for the creative way in which they list their calculators."
- *
+ *          follows the syntax of a Python lambda function (assume math module is imported for traditional math functions, e.g., sin, cos).
+ *          Specifying
+ *          the `method` parameter is optional."
  *      tags:
  *      - Dynamical systems
  *      consumes:
@@ -54,18 +41,23 @@ const projectLocation = secrets.GCLOUD_PROJECT_LOCATION;
  *            f:
  *              type: string
  *              example: "lambda t: 3*(t**2)*exp(t**3)"
+ *              description: Single variable function, a rate of change with respect to one variable.
  *            a:
  *              type: number
  *              example: 0
+ *              description: Starting limit of integration.
  *            b:
  *              type: number
  *              example: 1
+ *              description: Ending limit of integration.
  *            n:
  *              type: number
  *              example: 4
+ *              description: Number of steps for numerical approximation.
  *            method:
  *              type: string
  *              example: "trapezoidal"
+ *              description: Algorithm for numerical integration (`trapezoidal` or `midpoint`).
  *      responses:
  *        200:
  *          description: A successful response
@@ -111,3 +103,20 @@ router.post("/", (req, res) => {
 });
 
 module.exports = router;
+
+/**
+ * 
+ * 
+ *  *        **Capstone-related notes**:
+ *
+ *            * I would like to include a link to download the source of every
+ *              cloud function.
+ *
+ *            * I would like to provide links to a separate documentation site with
+ *              educational material.
+ *
+ *            * SimScale is a source of inspiration for the way their tutorial articles leverage their product.
+ *
+ *            * Omni Calculator is a source of inspiration for the creative way in which they list their calculators."
+
+ */

@@ -19,8 +19,7 @@
     "test-solve-pde": "mocha --exit test/routes/solve-pde/*.test.js",
     "test-optimize-energy": "mocha --exit test/routes/optimize-energy-management/*.test.js",
     "test-calculate-beam": "mocha --exit test/routes/calculate-beam/*.test.js",
-    "test-estimate-effect": "mocha --exit test/routes/estimate-effect/*.test.js" 
-    
+    "test-estimate-effect": "mocha --exit test/routes/estimate-effect/*.test.js"
   },
   "dependencies": {
     "@google-cloud/functions": "^1.2.0",

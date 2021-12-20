@@ -12,10 +12,52 @@ const projectLocation = secrets.GCLOUD_PROJECT_LOCATION;
  * /calculate-beam/steel-area:
  *  post:
  *      tags:
- *      - "Energy Management"
+ *      - "Civil Engineering"
+ *      description: "Calculates the steel area of a beam section."
  *      responses:
  *          200:
  *              description: A successfl response
+ *      consumes:
+ *      - "application/json"
+ *      parameters:
+ *      - in: body
+ *        name: body
+ *        description: The body object in JSON format.
+ *        required: true
+ *        schema:
+ *          type: object
+ *          required:
+ *            - fc
+ *            - fy
+ *            - b
+ *            - h
+ *            - c
+ *            - M
+ *          properties:
+ *            fc:
+ *              type: number
+ *              example: 210
+ *              description: Concrete strength (concrete 3000 = 210, 4000 = 280).
+ *            fy:
+ *              type: number
+ *              example: 2810
+ *              description: Steel strength (degree 40 = 2810, degree 60 = 4200).
+ *            b:
+ *              type: number
+ *              example: 9
+ *              description: Beam or slab width.
+ *            h:
+ *              type: number
+ *              example: 30
+ *              description: Beam height.
+ *            c:
+ *              type: number
+ *              example: 2.5
+ *              description: Beam cover.
+ *            M:
+ *              type: number
+ *              example: 905
+ *              description: Bending moment.
  */
 router.post("/steel-area", (req, res) => {
   const { fc, fy, b, h, c, M } = req.body;

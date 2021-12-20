@@ -4,7 +4,7 @@ const router = express.Router();
 // Routes
 
 /**
- * @swagger
+ * //@swagger
  * /optimize-lp/production-plan:
  *    post:
  *      tags:
@@ -18,12 +18,12 @@ const router = express.Router();
  */
 router.post("/", (req, res) => {
   res.status(200).json({
-    message: "Trapezoidal rule integration results.",
+    message: "Not implemented.",
   });
 });
 
 /**
- * @swagger
+ * //@swagger
  * /optimize-lp/media-selection:
  *    post:
  *      tags:
@@ -37,12 +37,12 @@ router.post("/", (req, res) => {
  */
 router.post("/", (req, res) => {
   res.status(200).json({
-    message: "Trapezoidal rule integration results.",
+    message: "Not implemented.",
   });
 });
 
 /**
- * @swagger
+ * //@swagger
  * /optimize-lp/max-flow:
  *    post:
  *      tags:
@@ -56,12 +56,12 @@ router.post("/", (req, res) => {
  */
 router.post("/", (req, res) => {
   res.status(200).json({
-    message: "Trapezoidal rule integration results.",
+    message: "Not implemented.",
   });
 });
 
 /**
- * @swagger
+ * //@swagger
  * /optimize-lp/transportation:
  *    post:
  *      tags:
@@ -75,12 +75,12 @@ router.post("/", (req, res) => {
  */
 router.post("/", (req, res) => {
   res.status(200).json({
-    message: "Trapezoidal rule integration results.",
+    message: "Not implemented.",
   });
 });
 
 /**
- * @swagger
+ * //@swagger
  * /optimize-lp/assignment:
  *    post:
  *      tags:
@@ -94,7 +94,7 @@ router.post("/", (req, res) => {
  */
 router.post("/", (req, res) => {
   res.status(200).json({
-    message: "Trapezoidal rule integration results.",
+    message: "Not implemented.",
   });
 });
 

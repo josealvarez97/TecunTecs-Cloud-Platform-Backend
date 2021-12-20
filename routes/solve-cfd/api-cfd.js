@@ -28,10 +28,41 @@ else TEMP = "/tmp/";
  *    post:
  *      tags:
  *      - Dynamical systems
- *      description: Use to solve Partial Differential Equations (PDE).
+ *      description: Simulates 2D lid-driven cavity flow problem.
  *      responses:
  *        200:
  *          description: A successful response
+ *      consumes:
+ *      - "application/json"
+ *      parameters:
+ *      - in: body
+ *        name: body
+ *        description: The body object in JSON format.
+ *        required: true
+ *        schema:
+ *          type: object
+ *          required:
+ *            - density
+ *            - viscosity
+ *            - u_top
+ *            - nt
+ *          properties:
+ *            density:
+ *              type: number
+ *              example: 1
+ *              description: Value of density.
+ *            viscosity:
+ *              type: number
+ *              example: 0.1
+ *              description: Value of kinetic viscosity.
+ *            u_top:
+ *              type: number
+ *              example: 8
+ *              description: Velocity of the lid boundary.
+ *            nt:
+ *              type: number
+ *              example: 100
+ *              description: Number of steps.
  *
  *
  */

@@ -25,10 +25,63 @@ else TEMP = "/tmp/";
  *    post:
  *      tags:
  *      - Dynamical systems
- *      description: Use to solve Partial Differential Equations (PDE).
+ *      description: Simulates the heat equation.
  *      responses:
  *        200:
  *          description: A successful response
+ *      consumes:
+ *      - "application/json"
+ *      parameters:
+ *      - in: body
+ *        name: body
+ *        description: The body object in JSON format.
+ *        required: true
+ *        schema:
+ *          type: object
+ *          required:
+ *            - heat_x_0
+ *            - heat_x_max
+ *            - f_0
+ *            - alpha
+ *            - Nx
+ *            - x_max
+ *            - Mt
+ *            - t_max
+ *          properties:
+ *            heat_x_0:
+ *              type: number
+ *              example: 0
+ *              description: Boundary condition at x=0.
+ *            heat_x_max:
+ *              type: number
+ *              example: 0
+ *              description: Boundary condition at x=L.
+ *            f_0:
+ *              type: string
+ *              example: "lambda x: sin(pi*x/1)"
+ *              description: Initial condition at t=0.
+ *            alpha:
+ *              type: number
+ *              example: 0.1
+ *              description: The termal diffusivity.
+ *            Nx:
+ *              type: number
+ *              example: 20
+ *              description: Number of mesh points in x direction.
+ *            x_max:
+ *              type: number
+ *              example: 1
+ *              description: Maximum value of x domain.
+ *            Mt:
+ *              type: number
+ *              example: 20
+ *              description: Number of time steps.
+ *            t_max:
+ *              type: number
+ *              example: 1
+ *              description: End time.
+ *
+ *
  *
  *
  */
@@ -78,7 +131,7 @@ router.post("/heat-equation", async (req, res) => {
 });
 
 /**
- * @swagger
+ * //@swagger
  * /pde/laplace-equation:
  *    post:
  *      tags:
@@ -92,12 +145,12 @@ router.post("/heat-equation", async (req, res) => {
  */
 router.post("/wave-equation", (req, res) => {
   res.status(200).json({
-    message: "Trapezoidal rule integration results.",
+    message: "Not implemented.",
   });
 });
 
 /**
- * @swagger
+ * //@swagger
  * /pde/wave-equation:
  *    post:
  *      tags:
@@ -111,7 +164,7 @@ router.post("/wave-equation", (req, res) => {
  */
 router.post("/wave-equation", (req, res) => {
   res.status(200).json({
-    message: "Trapezoidal rule integration results.",
+    message: "Not implemented.",
   });
 });
 
